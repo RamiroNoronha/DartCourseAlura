@@ -19,23 +19,27 @@ void main() {
   try {
     // Fazendo transferência
     bool result = bankController.makeTransfer(
-        idSender: "Kako", idReceiver: "Ricarth", amount: 300);
+        idSender: "Kako", idReceiver: "Ricarth", amount: 900);
 
     // Observando resultado
     if (result) print("Transferência realizada com sucesso!");
-  } on SendIdNotInvalidException catch (ex, stackTrace) {
+  } on SendIdInvalidException catch (ex, stackTrace) {
+    print(ex);
     print('O id ${ex.senderId} não é válido');
     print('Pilha de execução: ');
     print('${stackTrace.toString()}');
   } on ReceiverIdInvalidException catch (ex, stackTrace) {
+    print(ex);
     print('O id ${ex.idReceiver} não é válido');
     print('Pilha de execução: ');
     print('${stackTrace.toString()}');
   } on SenderNotAuthenticatedException catch (ex, stackTrace) {
+    print(ex);
     print('A conta com o id ${ex.senderId} não está autenticada');
     print('Pilha de execução: ');
     print('${stackTrace.toString()}');
   } on SenderBalanceLowerThenException catch (ex, stackTrace) {
+    print(ex);
     print(
       'A conta com o id ${ex.senderId} tentou enviar R\$ ${ex.amount} possuindo um saldo de R\$ ${ex.senderBalance}',
     );
