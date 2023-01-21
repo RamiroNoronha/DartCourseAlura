@@ -1,0 +1,1 @@
+class SendIdNotInvalidException implements Exception {}
