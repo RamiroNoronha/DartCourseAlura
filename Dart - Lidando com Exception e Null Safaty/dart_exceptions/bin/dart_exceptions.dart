@@ -5,7 +5,6 @@ import 'models/account.dart';
 void main() {
   // Criando o banco
   BankController bankController = BankController();
-
   // Adicionando contas
   bankController.addAccount(
       id: "Ricarth",
@@ -19,7 +18,7 @@ void main() {
   try {
     // Fazendo transferência
     bool result = bankController.makeTransfer(
-        idSender: "Kako", idReceiver: "Ricarth", amount: 900);
+        idSender: "Kako", idReceiver: "Ricarth", amount: 200);
 
     // Observando resultado
     if (result) print("Transferência realizada com sucesso!");
