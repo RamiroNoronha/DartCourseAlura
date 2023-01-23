@@ -49,3 +49,14 @@ class SenderBalanceLowerThenException implements Exception {
     return '$report\nID Sender: $senderId\nSender Balance: $senderBalance\nAmount: $amount';
   }
 }
+
+class ReceiverNotAuthenticatedException implements Exception {
+  static const String report = "ReceiverNotAuthenticatedException";
+  String idReceiver;
+  ReceiverNotAuthenticatedException({required this.idReceiver});
+
+  @override
+  String toString() {
+    return "$report\nID Receiver: $idReceiver";
+  }
+}
