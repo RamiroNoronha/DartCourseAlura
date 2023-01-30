@@ -7,14 +7,21 @@ void main() async {
   String kakoBot = 'KakoBOT:\n';
   var a = true;
   String usuario = '';
-
+  var streamBot = BotClock.kakoBotStream(1, 10);
+  var mySubscription = streamBot.listen(
+    (event) => print('                       The bot is opend for $event'),
+    onDone: () {
+      print('Do the last question');
+      a = false;
+    },
+  );
   print('-- Iniciando o KakoBOT, aguarde..--');
-  await BotClock.clock(1);
+  await BotClock.clock(2);
   print('KakoBOT:\n Oi :) \n Como posso ajudar?');
   do {
     usuario = stdin.readLineSync().toString();
     print('-- Processando pergunta, aguarde..--');
-    await BotClock.clock(1);
+    await BotClock.clock(2);
     if (usuario.contains('xau') ||
         usuario.contains('Xau') ||
         usuario.contains('Adeus') ||
